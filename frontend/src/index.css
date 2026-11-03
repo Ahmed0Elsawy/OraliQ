@@ -1,0 +1,571 @@
+@import "tailwindcss";
+@import "lenis/dist/lenis.css";
+
+/* ══════════════════════════════════════════════════════════════════
+   Typography — Mix of portfolio2027-ten.vercel.app & Thmanyah Foundry
+   - Ahmed Sans (ThmanyahSans 1.2 Light / Regular / Medium / Bold 700)
+   - BricolageGrotesque (Variable display & giant index numbers from portfolio2027)
+   - Ahmed Serif Display & Ahmed Serif Text (Editorial kickers & accents)
+   ══════════════════════════════════════════════════════════════════ */
+
+@font-face {
+  font-family: "Ahmed Sans";
+  src: url("/fonts/ThmanyahSans-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ahmed Sans";
+  src: url("/fonts/ThmanyahSans-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ahmed Sans";
+  src: url("/fonts/ThmanyahSans-Medium.woff2") format("woff2");
+  font-weight: 500 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ahmed Sans";
+  src: url("/fonts/ThmanyahSans-Bold.woff2") format("woff2");
+  font-weight: 700 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "BricolageGrotesque";
+  src: url("/fonts/BricolageGrotesque.ttf") format("truetype");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ahmed Serif Display";
+  src: url("/fonts/ThmanyahSerifDisplay-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ahmed Serif Display";
+  src: url("/fonts/ThmanyahSerifDisplay-Medium.woff2") format("woff2");
+  font-weight: 500 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ahmed Serif Display";
+  src: url("/fonts/ThmanyahSerifDisplay-Bold.woff2") format("woff2");
+  font-weight: 700 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ahmed Serif Text";
+  src: url("/fonts/ThmanyahSerifText-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ahmed Serif Text";
+  src: url("/fonts/ThmanyahSerifText-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ahmed Serif Text";
+  src: url("/fonts/ThmanyahSerifText-Medium.woff2") format("woff2");
+  font-weight: 500 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Ahmed Serif Text";
+  src: url("/fonts/ThmanyahSerifText-Bold.woff2") format("woff2");
+  font-weight: 700 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Loubag";
+  src: url("/fonts/Loubag-Bold.ttf") format("truetype");
+  font-weight: 700 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   Warm Espresso Brown & Off-White Palette
+   - Light Mode: Warm Off-White (#FAF6F0) + Espresso Brown (#6F4E37 / #38291F)
+   - Dark Mode:  Deep Espresso Brown (#18110D / #231913) + Warm Off-White (#FAF6F0) + Caramel Gold (#E3A458)
+   ══════════════════════════════════════════════════════════════════ */
+
+:root {
+  color-scheme: light;
+  --brand-mocha: #6F4E37;
+  --brand-mocha-dark: #38291F;
+  --brand-lavender: #EFE7DE;
+  --brand-sage: #D8CFC4;
+  --brand-platinum: #EAE3D9;
+  --brand-caramel: #E3A458;
+  --brand-obsidian: #18110D;
+  --wb-line: rgba(56, 41, 31, 0.14);
+  --stage-fade: #19120D;
+
+  --paper: #FAF6F0;
+  --sheet: #FFFFFF;
+  --sheet-2: #F2ECE1;
+  --rule: #E4DDD2;
+  --rule-strong: #2B1F18;
+  --ink: #1C1410;
+  --ink-2: #4A372B;
+  --ink-3: #6E5A4F;
+  --field: #857367;
+  --pen: #6F4E37;
+  --pen-hover: #4A3323;
+  --pen-wash: #EFE7DE;
+  --pen-ink: #FAF6F0;
+  --chart: #6F4E37;
+  --mark: #C73E1D;
+  --mark-wash: #FDECEE;
+  --pass: #236B48;
+  --pass-wash: #DCF2E6;
+  --warn: #8C520A;
+  --warn-wash: #FFF1D8;
+  --sun: #B85D19;
+  --sun-wash: #FFEEDD;
+  --violet: #7A5438;
+  --violet-wash: #EFE7DE;
+  --teal: #594537;
+  --teal-wash: #E8DFD3;
+  --navy: #1B130E;
+  --navy-2: #261B14;
+  --navy-ink: #FAF6F0;
+  --navy-muted: #D8CFC4;
+
+  /* Sidebar: Rich Espresso Brown with Warm Off-White & Mocha states */
+  --rail: #1B130E;
+  --rail-ink: #FAF6F0;
+  --rail-muted: #C4B7A9;
+  --rail-hover: rgba(250, 246, 240, 0.08);
+  --rail-active: #6F4E37;
+  --rail-active-ink: #FAF6F0;
+  --rail-line: rgba(250, 246, 240, 0.12);
+  --rail-indicator: #E3A458;
+
+  --overlay: rgba(24, 17, 13, 0.68);
+  --shadow-card: 0 18px 42px -18px rgba(38, 26, 18, 0.12);
+  --shadow-float: 0 28px 65px -20px rgba(38, 26, 18, 0.22);
+  --shadow-pop: 0 12px 30px -10px rgba(111, 78, 55, 0.28);
+
+  /* Home page alternating surfaces (Light Mode = Off-White & Espresso Brown) */
+  --home-a-bg: #FAF6F0;
+  --home-a-ink: #1C1410;
+  --home-a-muted: #5C493E;
+  --home-a-line: rgba(56, 41, 31, 0.12);
+  --home-a-card: #FFFFFF;
+
+  --home-b-bg: #1B130E;
+  --home-b-ink: #FAF6F0;
+  --home-b-muted: #D5C8B8;
+  --home-b-line: rgba(250, 246, 240, 0.14);
+  --home-b-card: #261B14;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --stage-fade: #150F0B;
+
+  --paper: #16100C;
+  --sheet: #221813;
+  --sheet-2: #2C2019;
+  --rule: #3B2B22;
+  --rule-strong: #E6DDD0;
+  --ink: #FAF6F0;
+  --ink-2: #DFD3C3;
+  --ink-3: #B5A494;
+  --field: #998777;
+  --pen: #E3A458;
+  --pen-hover: #F0B870;
+  --pen-wash: #38291F;
+  --pen-ink: #18110D;
+  --chart: #E3A458;
+  --mark: #FF7868;
+  --mark-wash: #3A1A18;
+  --pass: #47C98B;
+  --pass-wash: #112F22;
+  --warn: #F1B45A;
+  --warn-wash: #392A13;
+  --violet: #E3A458;
+  --violet-wash: #33241B;
+  --teal: #D8CFC4;
+  --teal-wash: #2E221A;
+  --sun: #F5A962;
+  --sun-wash: #3A2716;
+  --navy: #1B130E;
+  --navy-2: #261B14;
+  --navy-ink: #FAF6F0;
+  --navy-muted: #D8CFC4;
+
+  --rail: #120D09;
+  --rail-ink: #FAF6F0;
+  --rail-muted: #B5A494;
+  --rail-hover: rgba(250, 246, 240, 0.08);
+  --rail-active: #6F4E37;
+  --rail-active-ink: #FAF6F0;
+  --rail-line: rgba(250, 246, 240, 0.12);
+  --rail-indicator: #E3A458;
+  --overlay: rgba(12, 8, 6, 0.78);
+
+  /* Home page alternating surfaces (Dark Mode = Rich Espresso Brown & Warm Off-White) */
+  --home-a-bg: #16100C;
+  --home-a-ink: #FAF6F0;
+  --home-a-muted: #D5C8B8;
+  --home-a-line: rgba(250, 246, 240, 0.14);
+  --home-a-card: #221813;
+
+  --home-b-bg: #221813;
+  --home-b-ink: #FAF6F0;
+  --home-b-muted: #DFD3C3;
+  --home-b-line: rgba(250, 246, 240, 0.16);
+  --home-b-card: #2C2019;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-sheet: var(--sheet);
+  --color-sheet-2: var(--sheet-2);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-field: var(--field);
+  --color-pen: var(--pen);
+  --color-pen-hover: var(--pen-hover);
+  --color-pen-wash: var(--pen-wash);
+  --color-pen-ink: var(--pen-ink);
+  --color-chart: var(--chart);
+  --color-mark: var(--mark);
+  --color-mark-wash: var(--mark-wash);
+  --color-pass: var(--pass);
+  --color-pass-wash: var(--pass-wash);
+  --color-warn: var(--warn);
+  --color-warn-wash: var(--warn-wash);
+  --color-sun: var(--sun);
+  --color-sun-wash: var(--sun-wash);
+  --color-rail: var(--rail);
+  --color-rail-ink: var(--rail-ink);
+  --color-rail-muted: var(--rail-muted);
+  --color-rail-hover: var(--rail-hover);
+  --color-rail-active: var(--rail-active);
+  --color-rail-active-ink: var(--rail-active-ink);
+  --color-rail-line: var(--rail-line);
+  --color-rail-indicator: var(--rail-indicator);
+  --color-violet: var(--violet);
+  --color-violet-wash: var(--violet-wash);
+  --color-teal: var(--teal);
+  --color-teal-wash: var(--teal-wash);
+  --color-navy: var(--navy);
+  --color-navy-2: var(--navy-2);
+  --color-navy-ink: var(--navy-ink);
+  --color-navy-muted: var(--navy-muted);
+  --color-overlay: var(--overlay);
+  --color-home-a-bg: var(--home-a-bg);
+  --color-home-b-bg: var(--home-b-bg);
+  --color-home-bg: var(--home-bg);
+  --color-home-card: var(--home-card);
+  --color-home-line: var(--home-line);
+  --color-home-ink: var(--home-ink);
+  --color-home-muted: var(--home-muted);
+  --shadow-card: var(--shadow-card);
+  --shadow-float: var(--shadow-float);
+  --shadow-pop: var(--shadow-pop);
+
+  --font-sans: "Ahmed Sans", "BricolageGrotesque", system-ui, -apple-system, sans-serif;
+  --font-display: "Ahmed Sans", "BricolageGrotesque", "Ahmed Serif Display", sans-serif;
+  --font-script: "Ahmed Serif Text", "Ahmed Serif Display", serif;
+
+  --radius-control: 14px;
+  --radius-panel: 23px;
+
+  --animate-marquee: marquee var(--duration) infinite linear;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+@keyframes marquee-vertical {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+  }
+}
+
+/* ── Base & Arabic Typography ── */
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    background: var(--paper);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.72;
+    background: var(--paper);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "ss01" 1, "kern" 1, "liga" 1, "rlig" 1, "calt" 1;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Never break Arabic letter connections */
+  [dir="rtl"] * {
+    letter-spacing: 0 !important;
+  }
+
+  h1, h2, h3, h4, .ar-heading {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.12;
+    text-wrap: balance;
+    font-feature-settings: "ss01" 1, "kern" 1, "liga" 1, "rlig" 1, "calt" 1;
+  }
+
+  .ar-script {
+    font-family: var(--font-script);
+    font-weight: 500;
+    line-height: 1.45;
+    font-feature-settings: "kern" 1, "liga" 1, "rlig" 1, "calt" 1;
+  }
+
+  .ar-body {
+    font-family: var(--font-sans);
+    line-height: 1.82;
+  }
+
+  .wb-num {
+    font-family: "BricolageGrotesque", "Ahmed Sans", sans-serif;
+    letter-spacing: -0.055em !important;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .home :is(h1, h2, h3, h4) { color: inherit; }
+
+  p { text-wrap: pretty; }
+
+  ::selection { background: #E3A458; color: #18110D; }
+
+  :focus-visible {
+    outline: 2px solid #6F4E37;
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
+  button { cursor: pointer; font-family: var(--font-sans); }
+  button:disabled { cursor: not-allowed; }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 40px var(--sheet) inset !important;
+    -webkit-text-fill-color: var(--ink) !important;
+    caret-color: var(--ink);
+  }
+
+  input.auth-light-input:-webkit-autofill,
+  input.auth-light-input:-webkit-autofill:hover,
+  input.auth-light-input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 40px var(--sheet) inset !important;
+    -webkit-text-fill-color: var(--ink) !important;
+    caret-color: var(--ink) !important;
+  }
+
+  .tabular { font-variant-numeric: tabular-nums; }
+  .ltr { unicode-bidi: plaintext; }
+  [dir="rtl"] .ltr { text-align: right; }
+  [dir="ltr"] .ltr { text-align: left; }
+}
+
+/* ── Signature Espresso & Off-White Surfaces ── */
+
+/* Rich Mocha Espresso Gradient */
+.wb-mocha-stage {
+  background:
+    radial-gradient(circle at 22% 18%, rgba(227, 164, 88, 0.18), transparent 48%),
+    radial-gradient(circle at 82% 76%, rgba(250, 246, 240, 0.10), transparent 52%),
+    linear-gradient(125deg, #281B14 0%, #5E3F2B 52%, #3B281C 100%);
+  color: #FAF6F0;
+}
+
+/* Deep Warm Espresso Stage (Replaces cold pitch black) */
+.wb-dark-stage {
+  background:
+    radial-gradient(ellipse at 50% 28%, rgba(111, 78, 55, 0.36) 0%, transparent 64%),
+    radial-gradient(circle at 85% 80%, rgba(227, 164, 88, 0.12) 0%, transparent 50%),
+    linear-gradient(180deg, #211711 0%, #16100C 100%);
+  color: #FAF6F0;
+}
+
+/* Outlined Giant Index Figure */
+.wb-outline-num {
+  font-family: "BricolageGrotesque", "Ahmed Sans", sans-serif;
+  font-weight: 800;
+  line-height: 0.84;
+  letter-spacing: -0.06em !important;
+  color: transparent;
+  -webkit-text-stroke: 1.75px currentColor;
+  user-select: none;
+}
+
+/* Espresso Pill Buttons */
+.oiq-btn-mint {
+  background: linear-gradient(115deg, #38261B, #6F4E37 55%, #523827);
+  color: #FAF6F0;
+  border: 1px solid rgba(250, 246, 240, 0.24);
+  box-shadow: 0 14px 32px -10px rgba(56, 41, 31, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.28s cubic-bezier(0.22, 1, 0.36, 1), filter 0.25s ease;
+}
+.oiq-btn-mint:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 38px -10px rgba(56, 41, 31, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  filter: brightness(1.08);
+}
+.oiq-btn-mint:active {
+  transform: translateY(0);
+}
+
+.oiq-btn-white {
+  background: #FAF6F0;
+  color: #1C1410;
+  border: 1px solid rgba(56, 41, 31, 0.16);
+  box-shadow: 0 10px 26px -10px rgba(28, 20, 16, 0.14), inset 0 1px 0 #FFFFFF;
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.25s ease, box-shadow 0.28s ease;
+}
+.oiq-btn-white:hover {
+  transform: translateY(-2px);
+  background: #FFFFFF;
+  box-shadow: 0 16px 32px -10px rgba(28, 20, 16, 0.22);
+}
+
+/* Scrollbars — quiet, themed */
+* { scrollbar-width: thin; scrollbar-color: #6F4E37 transparent; }
+
+/* ── Fine grain on dark surfaces ── */
+.oiq-noise { position: relative; isolation: isolate; }
+.oiq-noise::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.07;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+.home-a, .home-b { background: var(--home-bg); color: var(--home-ink); transition: background-color 0.3s ease, color 0.3s ease; }
+.home-a {
+  --home-bg: var(--home-a-bg); --home-ink: var(--home-a-ink); --home-muted: var(--home-a-muted);
+  --home-line: var(--home-a-line); --home-card: var(--home-a-card);
+}
+.home-b {
+  --home-bg: var(--home-b-bg); --home-ink: var(--home-b-ink); --home-muted: var(--home-b-muted);
+  --home-line: var(--home-b-line); --home-card: var(--home-b-card);
+}
+
+/* The hero's face scan */
+@keyframes home-mesh-in { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes home-scan { 0% { top: 0%; opacity: 0; } 8% { opacity: 1; } 42% { top: 100%; opacity: 1; } 50%, 100% { top: 100%; opacity: 0; } }
+
+/* ── Motion ───────────────────────────────────────────────────────── */
+@keyframes oiq-draw { from { stroke-dashoffset: var(--len, 400); } to { stroke-dashoffset: 0; } }
+@keyframes oiq-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes oiq-pop-in { from { opacity: 0; transform: translateY(8px) scale(0.98); } to { opacity: 1; transform: none; } }
+@keyframes oiq-shimmer { 0% { background-position: 100% 0; } 100% { background-position: -100% 0; } }
+:root { --marquee-dir: -1; }
+[dir="rtl"] { --marquee-dir: 1; }
+@keyframes oiq-marquee { from { transform: translateX(0); } to { transform: translateX(calc(var(--marquee-dir) * 50%)); } }
+@keyframes oiq-marquee-left { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-50%, 0, 0); } }
+@keyframes oiq-marquee-right { from { transform: translate3d(-50%, 0, 0); } to { transform: translate3d(0, 0, 0); } }
+@keyframes oiq-drift { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(40px, 30px); } }
+@keyframes oiq-eq { 0%, 100% { transform: scaleY(0.35); } 50% { transform: scaleY(1); } }
+@keyframes oiq-glow-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes oiq-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes oiq-breathe-in { from { transform: scale(0.55); } to { transform: scale(1); } }
+@keyframes oiq-breathe-out { from { transform: scale(1); } to { transform: scale(0.55); } }
+@keyframes oiq-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes oiq-pulse-ring { 0% { transform: scale(1); opacity: 0.55; } 100% { transform: scale(1.9); opacity: 0; } }
+@keyframes oiq-kenburns { 0% { transform: scale(1) translate3d(0, 0, 0); } 50% { transform: scale(1.07) translate3d(-1.5%, -1%, 0); } 100% { transform: scale(1) translate3d(0, 0, 0); } }
+
+.oiq-skeleton {
+  background: linear-gradient(90deg, var(--rule) 25%, var(--sheet-2) 50%, var(--rule) 75%);
+  background-size: 200% 100%;
+  animation: oiq-shimmer 1.4s linear infinite;
+}
+
+.animate-marquee {
+  animation: marquee var(--duration, 40s) linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-vertical {
+  animation: marquee-vertical var(--duration, 40s) linear infinite;
+  will-change: transform;
+}
+
+/* ── Print ─────── */
+@media print {
+  :root:root, :root[data-theme] {
+    color-scheme: light;
+    --paper: #FFFFFF; --sheet: #FFFFFF; --sheet-2: #F7F7F7;
+    --rule: #DADADA; --rule-strong: #BDBDBD;
+    --ink: #000000; --ink-2: #333333; --ink-3: #555555;
+    --pen: #000000; --pen-wash: #EEEEEE; --pen-ink: #FFFFFF;
+    --mark: #C0242F; --mark-wash: #FBEAEB;
+    --pass: #0F6B41; --pass-wash: #E2F3EA; --warn: #8A500A; --warn-wash: #FBF0DD;
+    --chart: #000000; --field: #888888;
+  }
+  body:has(dialog[open]) * { visibility: hidden; }
+  body:has(dialog[open]) dialog[open], body:has(dialog[open]) dialog[open] * { visibility: visible; }
+  dialog[open] {
+    position: absolute !important; inset: 0 auto auto 0 !important;
+    width: 100% !important; max-width: none !important; height: auto !important; max-height: none !important;
+    border: 0 !important; box-shadow: none !important; margin: 0 !important;
+  }
+  dialog::backdrop { display: none; }
+  .print-expand { height: auto !important; max-height: none !important; overflow: visible !important; }
+  @page { margin: 16mm; }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) { animation-duration: 0.35s; animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1); }
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
+}
