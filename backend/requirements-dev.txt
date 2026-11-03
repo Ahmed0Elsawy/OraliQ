@@ -1,0 +1,4 @@
+# Everything the server needs, plus the test tools. Production installs requirements.txt only.
+-r requirements.txt
+pytest
+httpx

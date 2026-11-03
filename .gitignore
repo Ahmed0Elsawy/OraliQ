@@ -1,0 +1,71 @@
+# Secrets — never commit these. `.env` alone would miss .env.production and friends.
+.env*
+# These two hold only the API URL the build points at — no secrets, and they are in the repo.
+# Scoped to frontend/ on purpose: a backend .env.production would hold the real credentials.
+!frontend/.env.development
+!frontend/.env.production
+*.env
+!local.env.example
+.secret_key
+*.sqlite
+*.sqlite3
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+backend/local.env
+backend/data/
+backups/
+*.db
+interview_ai.db
+
+# Frontend
+node_modules/
+dist/
+.DS_Store
+frontend/.env.local
+
+# IDE / tools / scratch
+.vscode/
+.idea/
+.claude/
+.agents/
+.prev-photos/
+hf-space-clone_v2/
+
+# Local-only
+test_face_detection.py
+yolo26n.pt
+face_landmarker.task
+
+# Tool outputs and caches
+graphify-out/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.log
+
+# Keys and certificates
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Model weights (downloaded or mounted at runtime, never committed)
+*.pt
+*.onnx
+*.task
+
+# Recordings, uploads and dumps (user data)
+uploads/
+recordings/
+*.wav
+*.webm
+*.m4a
+*.dump
+*.sql.gz

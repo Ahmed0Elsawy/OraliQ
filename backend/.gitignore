@@ -1,0 +1,7 @@
+*.wav
+bfg.jar
+..bfg-report/
+scripts/lbfmodel.yaml
+local.env
+data/
+*.db

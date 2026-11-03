@@ -1,0 +1,11 @@
+# Started by systemd when oraliq-db-backup.service fails (OnFailure=). Sends the alert through the
+# command in BACKUP_ALERT_COMMAND (see backup.env.example) with the last log lines of the run.
+[Unit]
+Description=Alert: OralIQ backup failed (%i)
+
+[Service]
+Type=oneshot
+User=oraliq-backup
+Group=oraliq-backup
+EnvironmentFile=/etc/oraliq/backup.env
+ExecStart=/opt/oraliq/ops/backup/alert_on_failure.sh %i

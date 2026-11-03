@@ -1,0 +1,14 @@
+# Daily OralIQ backup. Change OnCalendar to move it (systemd-analyze calendar "..." checks a value).
+# The time is the server's local time zone; add a zone to pin it, e.g. "*-*-* 03:30:00 Africa/Cairo".
+[Unit]
+Description=Daily OralIQ PostgreSQL backup
+
+[Timer]
+OnCalendar=*-*-* 03:30:00
+# Spread the start a little so it does not coincide with other nightly jobs.
+RandomizedDelaySec=15min
+# Run at the next boot if the server was off at the scheduled time.
+Persistent=true
+
+[Install]
+WantedBy=timers.target
